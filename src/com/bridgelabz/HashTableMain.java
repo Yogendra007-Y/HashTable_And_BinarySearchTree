@@ -21,6 +21,7 @@ public class HashTableMain {
                 count = count + 1;
             hashTable.add(word, count);
         }
+        hashTable.remove("avoidable");
         System.out.println(hashTable);
     }
 }
@@ -113,11 +114,32 @@ class MyHashMap <K, V> {
         }
     }
 
+    /**
+     * Purpose : Method to remove a word
+     * @param key : word to be removed
+     */
+    public void remove(K key) {
+        MyMapNode<K, V> currentNode = head;
+        MyMapNode<K, V> previousNode = null;
+        while (currentNode != null && currentNode.getKey().equals(key)) {
+            head = currentNode.getNext();
+        }
+        while (currentNode != null && !(currentNode.getKey().equals(key))) {
+            previousNode = currentNode;
+            currentNode = currentNode.getNext();
+        }
+        if (currentNode != null)
+            previousNode.next = currentNode.next;
+        if (currentNode == null)
+            System.out.println("Word not found");
+    }
+
     @Override
     public String toString() {
         return "MyHashMapNodes{" + head + '}';
     }
 }
+
 class MyMapNode <K, V> {
     K key;
     V value;
