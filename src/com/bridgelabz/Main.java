@@ -18,6 +18,16 @@ class BinarySearchTree {
         myTree.add(56);
         myTree.add(30);
         myTree.add(70);
+        myTree.add(22);
+        myTree.add(40);
+        myTree.add(11);
+        myTree.add(3);
+        myTree.add(16);
+        myTree.add(60);
+        myTree.add(95);
+        myTree.add(65);
+        myTree.add(63);
+        myTree.add(67);
         myTree.print(myTree.root);
     }
 }
@@ -54,6 +64,7 @@ class BinaryTree <K extends Comparable<K>> {
         }
     }
 
+    /* This Method to display the Binary Search Tree */
     public void print(BinaryNode<K> node) {
         if (node == null) {
             System.out.println("Tree is empty");
